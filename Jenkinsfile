@@ -19,8 +19,7 @@ pipeline {
     stage ('deploy'){
       steps{
         //ssh -o StrictHostKeyChecking=no vagrant@192.168.56.10
-        docker run -d --name jenkins -p 8000:8000 kramchas/fastapi:latest
-        '
+        sh 'docker run -d --name jenkins -p 8000:8000 kramchas/fastapi:latest'
       }
     }
   }
