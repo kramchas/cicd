@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx
+    ports: 
+      - "8888:80"
+    volumes: 
+      - ./html:/usr/share/nginx/html
+
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #command: uvicorn main:app --host 0.0.0.0 --port 8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+
+
